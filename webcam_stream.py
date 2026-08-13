@@ -225,9 +225,13 @@ class Camera:
 
                 misses = 0
                 stamp = time.strftime("%Y-%m-%d %H:%M:%S")
-                cv2.putText(frame, stamp, (10, frame.shape[0] - 12),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 3, cv2.LINE_AA)
-                cv2.putText(frame, stamp, (10, frame.shape[0] - 12),
+                org = (10, frame.shape[0] - 12)
+                # Hershey glyph advance grows with thickness, so a thicker
+                # second pass cannot be used as an outline - it drifts right.
+                (tw, th), bl = cv2.getTextSize(stamp, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 1)
+                cv2.rectangle(frame, (org[0] - 5, org[1] - th - 5),
+                              (org[0] + tw + 5, org[1] + bl + 3), (0, 0, 0), -1)
+                cv2.putText(frame, stamp, org,
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv2.LINE_AA)
 
                 ok, buf = cv2.imencode(".jpg", frame, encode_params)
