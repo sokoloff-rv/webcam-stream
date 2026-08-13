@@ -225,7 +225,7 @@ class Camera:
 
                 misses = 0
                 stamp = time.strftime("%Y-%m-%d %H:%M:%S")
-                cv2.putText(frame, stamp, (11, frame.shape[0] - 11),
+                cv2.putText(frame, stamp, (10, frame.shape[0] - 12),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 3, cv2.LINE_AA)
                 cv2.putText(frame, stamp, (10, frame.shape[0] - 12),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv2.LINE_AA)
