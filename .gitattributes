@@ -1,0 +1,10 @@
+# Keep line endings stable no matter who commits from which OS.
+* text=auto eol=lf
+
+# cmd.exe needs CRLF: an LF-only .bat can break in parenthesised blocks.
+*.bat text eol=crlf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.exe binary

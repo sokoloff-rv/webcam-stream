@@ -1,0 +1,27 @@
+# Local settings and secrets
+settings.json
+
+# Downloaded at runtime
+cloudflared
+cloudflared.exe
+
+# Build output
+build/
+dist/
+tmp/
+*.spec
+build_log.txt
+WebcamStream.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
